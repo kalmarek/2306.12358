@@ -1,0 +1,11 @@
+[deps]
+ArgParse = "c7e460c6-2fb9-53a9-8c5b-16f535851c63"
+COSMO = "1e616198-aa4e-51ec-90a2-23f7fbd31d8d"
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
+Groups = "5d8bd718-bd84-11e8-3b40-ad14f4a32557"
+IJulia = "7073ff75-c697-5162-941a-fcdaad2a7d2a"
+JuMP = "4076af6c-e467-56ae-b986-b466b2749572"
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+MKL_jll = "856f044c-d86e-5d09-b602-aeab76dc8ba7"
+PropertyT = "03b72c93-0167-51e2-8a1e-eb4ff1fb940d"
+SCS = "c946c3f1-0d1f-5ce8-9dea-7daa1f7e2d13"
