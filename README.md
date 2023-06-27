@@ -73,10 +73,10 @@ All of these scripts accept the command-line optional arguments:
 Thus the following invocations can be used to reprove the computational results in the paper.
 
 * Theorem 3.6:
-  * `julia --project=@. scripts/SLnZ_AdjA2.jl -N 3 -R 2` 
-  * `julia --project=@. scripts/SLnZ_AdjA2.jl -N 3 -R 3` (Note: the default solvers parameters in the script are not suitable for `-R 3`; in particular one has to increase `max_iters` considerably)
+  * `julia --project=@. scripts/SLnZ_AdjA2.jl -N 3 -R 2`
+  * `julia --project=@. scripts/SLnZ_AdjA2.jl -N 3 -R 3` (Note: the default solvers parameters in the script are not suitable for `-R 3`; in particular one has to increase `max_iters` considerably.)
 * Theorem 3.10:
-  * `julia --project=@. scripts/Sp2nZ_AdjC2.jl -N 2 -R 3`
+  * `julia --project=@. scripts/Sp2nZ_AdjC2.jl -N 2 -R 3` (Note: this requires plenty of memory and computation time.)
 * Theorem 3.12:
   * `julia --project=@. scripts/Sp2nZ_has_T.jl -N 2 -R 2`
   * `julia --project=@. scripts/Sp2nZ_has_T.jl -N 2 -R 3`
