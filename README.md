@@ -1,4 +1,5 @@
 # Replication for [2306.12358](https://arxiv.org/abs/2306.12358)
+
 This repository contains notebooks and standalone code to replicate the computational results of _Kazhdan constants for Chevalley groups over the integers_ by Marek Kaluba and Dawid Kielak.
 
 Before exploring the notebooks you need to clone the main repository:
@@ -9,7 +10,7 @@ git clone https://github.com/kalmarek/2306.12358.git
 
 The replicating notebooks are located in `2306.12358/notebooks` subdirectory.
 
-# Installation
+## Installation
 
 You should install [julia](https://julialang.org/) from the [official repository](https://julialang.org/downloads/). Then while located in `2306/12358` directory run `julia` in terminal and execute the following commands in julias command-line (REPL) to instantiate the environment for computations.
 
@@ -28,9 +29,9 @@ Instantiation should install (among others):
 
 The environment uses [`Groups.jl`](https://github.com/kalmarek/Groups.jl), [`StarAlgebras.jl`](https://github.com/kalmarek/StarAlgebras.jl/), [`SymbolicWedderburn.jl`](https://github.com/kalmarek/SymbolicWedderburn.jl/) and [`PropertyT.jl`](https://github.com/kalmarek/PropertyT.jl/) (unregistered) packages.
 
-# Replication
+## Replication
 
-## Notebooks
+### Notebooks
 
 After instantiating the environment a jupyter server should be launched form `2306.12358` directory by issuing from julia command-line (REPL).
 
@@ -43,7 +44,7 @@ notebook(dir=pwd())
 
 > During the first run, the user may be asked for installation of Jupyter program (a server for running this notebook) within miniconda environment, which will happen automatically after confirmation. To execute the commands in the notebook, one needs to navigate to `notebooks` subdirectory and click either of the notebooks.
 
-## Scripts
+### Scripts
 
 The following scripts are included in `scripts`  subdirectory:
 
@@ -89,13 +90,11 @@ Thus the following invocations can be used to reprove the computational results 
 
 ## Citing
 
-
-
 If you find yourself using or studying code in this repository please cite
 
-```
+```bibtex
 @misc{kaluba2023kazhdan,
-      title={Kazhdan constants for Chevalley groups over the integers}, 
+      title={Kazhdan constants for Chevalley groups over the integers},
       author={Marek Kaluba and Dawid Kielak},
       year={2023},
       eprint={2306.12358},
@@ -103,4 +102,3 @@ If you find yourself using or studying code in this repository please cite
       primaryClass={math.GR}
 }
 ```
-
