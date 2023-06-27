@@ -78,10 +78,10 @@ Thus the following invocations can be used to reprove the computational results 
 * Theorem 3.10:
   * `julia --project=@. scripts/Sp2nZ_AdjC2.jl -N 2 -R 3`
 * Theorem 3.12:
-  * `julia --project=@. scripts/SpnZ_has_T.jl -N 2 -R 2`
-  * `julia --project=@. scripts/SpnZ_has_T.jl -N 2 -R 3`
+  * `julia --project=@. scripts/Sp2nZ_has_T.jl -N 2 -R 2`
+  * `julia --project=@. scripts/Sp2nZ_has_T.jl -N 2 -R 3`
 * Theorem 3.15:
-  * `julia --project=@. scripts/SpnZ_Level.jl -N 3 -R 2`
+  * `julia --project=@. scripts/Sp2nZ_Level.jl -N 3 -R 2`
 * Theorem 3.17:
   * `julia --project=@. scripts/G2_has_T.jl -R 2` (option `-N` is ignored)
 * Theorem 3.18:
