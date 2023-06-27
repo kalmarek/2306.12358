@@ -66,7 +66,6 @@ certified, λ = solve_in_loop(
     varP;
     logdir = "./log/G2/r=$HALFRADIUS/Adj-$(UPPER_BOUND)Δ",
     optimizer = scs_optimizer(;
-        linear_solver = SCS.MKLDirectSolver,
         eps = 1e-9,
         max_iters = 100_000,
         accel = 50,
