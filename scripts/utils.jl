@@ -45,6 +45,9 @@ function solve_in_loop(model::JuMP.Model, args...; logdir, optimizer, data)
     while status != JuMP.OPTIMAL
         date = now()
         log_file = joinpath(logdir, "solver_$date.log")
+        if Sys.iswindows()
+            log_file = replace(log_file, ':' => '_')
+        end
         status, warm = run_optimization(log_file, model, optimizer, warm)
         solution = get_solution(model, args...)
         solution[:warm] = warm
