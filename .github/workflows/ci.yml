@@ -1,4 +1,4 @@
-name: CI
+name: Replication 
 on:
   - pull_request
   - push
@@ -44,8 +44,10 @@ jobs:
         run: julia --project=@. scripts/Sp2nZ_has_T.jl -N 2 -R 2
       - name: Theorem 3.15 - Lev₂³ + Lev₃³ > 0 in Sp₆(ℤ) (R=2)
         run: julia --project=@. scripts/Sp2nZ_Level.jl -N 3 -R 2
-      - name: Theorem 3.17 G₂ has property (T) (R=2)
+      - name: Theorem 3.17 - G₂ has property (T) (R=2)
         run: julia --project=@. scripts/G2_has_T.jl -R 2
-      - name: Theorem 3.18 Adj_G₂ in G₂ (R=2 fails, R=3 takes too long for CI)
+      - name: Theorem 3.18 - Adj_G₂ > 0 in G₂ (R=2 fails, R=3 takes too long for CI)
+        # The theorem only states the positivity for R=3
+        # This test only checks if the script runs property, see also the triple bounds notebook.
         run: julia --project=@. scripts/G2_Adj.jl -R 2
 
