@@ -5,12 +5,13 @@ import MKL_jll
 import SCS
 
 function scs_optimizer(;
-    accel=10,
-    alpha=1.5,
-    eps=1e-9,
-    max_iters=100_000,
-    verbose=true,
-    linear_solver=MKL_jll.is_available() ? SCS.MKLDirectSolver : SCS.DirectSolver
+    accel = 10,
+    alpha = 1.5,
+    eps = 1e-9,
+    max_iters = 100_000,
+    verbose = true,
+    linear_solver = Sys.islinux() && sizeof(Int) == 8 ? SCS.MKLDirectSolver :
+                    SCS.DirectSolver,
 )
     return JuMP.optimizer_with_attributes(
         SCS.Optimizer,
@@ -29,18 +30,18 @@ end
 import COSMO
 
 function cosmo_optimizer(;
-    accel=15,
-    alpha=1.6,
-    eps=1e-9,
-    max_iters=100_000,
-    verbose=true,
-    verbose_timing=verbose,
-    decompose=false
+    accel = 15,
+    alpha = 1.6,
+    eps = 1e-9,
+    max_iters = 100_000,
+    verbose = true,
+    verbose_timing = verbose,
+    decompose = false,
 )
     return JuMP.optimizer_with_attributes(
         COSMO.Optimizer,
         "accelerator" =>
-            COSMO.with_options(COSMO.AndersonAccelerator; mem=max(accel, 2)),
+            COSMO.with_options(COSMO.AndersonAccelerator; mem = max(accel, 2)),
         "alpha" => alpha,
         "decompose" => decompose,
         "eps_abs" => eps,

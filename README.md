@@ -1,4 +1,7 @@
 # Replication for [2306.12358](https://arxiv.org/abs/2306.12358)
+
+Current status: [![Replication](https://github.com/kalmarek/2306.12358/actions/workflows/replication.yml/badge.svg)](https://github.com/kalmarek/2306.12358/actions/workflows/replication.yml)
+
 This repository contains notebooks and standalone code to replicate the computational results of _Kazhdan constants for Chevalley groups over the integers_ by Marek Kaluba and Dawid Kielak.
 
 Before exploring the notebooks you need to clone the main repository:
@@ -9,7 +12,7 @@ git clone https://github.com/kalmarek/2306.12358.git
 
 The replicating notebooks are located in `2306.12358/notebooks` subdirectory.
 
-# Installation
+## Installation
 
 You should install [julia](https://julialang.org/) from the [official repository](https://julialang.org/downloads/). Then while located in `2306/12358` directory run `julia` in terminal and execute the following commands in julias command-line (REPL) to instantiate the environment for computations.
 
@@ -28,9 +31,9 @@ Instantiation should install (among others):
 
 The environment uses [`Groups.jl`](https://github.com/kalmarek/Groups.jl), [`StarAlgebras.jl`](https://github.com/kalmarek/StarAlgebras.jl/), [`SymbolicWedderburn.jl`](https://github.com/kalmarek/SymbolicWedderburn.jl/) and [`PropertyT.jl`](https://github.com/kalmarek/PropertyT.jl/) (unregistered) packages.
 
-# Replication
+## Replication
 
-## Notebooks
+### Notebooks
 
 After instantiating the environment a jupyter server should be launched form `2306.12358` directory by issuing from julia command-line (REPL).
 
@@ -43,7 +46,7 @@ notebook(dir=pwd())
 
 > During the first run, the user may be asked for installation of Jupyter program (a server for running this notebook) within miniconda environment, which will happen automatically after confirmation. To execute the commands in the notebook, one needs to navigate to `notebooks` subdirectory and click either of the notebooks.
 
-## Scripts
+### Scripts
 
 The following scripts are included in `scripts`  subdirectory:
 
@@ -73,15 +76,15 @@ All of these scripts accept the command-line optional arguments:
 Thus the following invocations can be used to reprove the computational results in the paper.
 
 * Theorem 3.6:
-  * `julia --project=@. scripts/SLnZ_AdjA2.jl -N 3 -R 2` 
-  * `julia --project=@. scripts/SLnZ_AdjA2.jl -N 3 -R 3` (Note: the default solvers parameters in the script are not suitable for `-R 3`; in particular one has to increase `max_iters` considerably)
+  * `julia --project=@. scripts/SLnZ_AdjA2.jl -N 3 -R 2`
+  * `julia --project=@. scripts/SLnZ_AdjA2.jl -N 3 -R 3` (Note: the default solvers parameters in the script are not suitable for `-R 3`; in particular one has to increase `max_iters` considerably.)
 * Theorem 3.10:
-  * `julia --project=@. scripts/Sp2nZ_AdjC2.jl -N 2 -R 3`
+  * `julia --project=@. scripts/Sp2nZ_AdjC2.jl -N 2 -R 3` (Note: this requires plenty of memory and computation time.)
 * Theorem 3.12:
-  * `julia --project=@. scripts/SpnZ_has_T.jl -N 2 -R 2`
-  * `julia --project=@. scripts/SpnZ_has_T.jl -N 2 -R 3`
+  * `julia --project=@. scripts/Sp2nZ_has_T.jl -N 2 -R 2`
+  * `julia --project=@. scripts/Sp2nZ_has_T.jl -N 2 -R 3`
 * Theorem 3.15:
-  * `julia --project=@. scripts/SpnZ_Level.jl -N 3 -R 2`
+  * `julia --project=@. scripts/Sp2nZ_Level.jl -N 3 -R 2`
 * Theorem 3.17:
   * `julia --project=@. scripts/G2_has_T.jl -R 2` (option `-N` is ignored)
 * Theorem 3.18:
@@ -89,13 +92,11 @@ Thus the following invocations can be used to reprove the computational results 
 
 ## Citing
 
-
-
 If you find yourself using or studying code in this repository please cite
 
-```
+```bibtex
 @misc{kaluba2023kazhdan,
-      title={Kazhdan constants for Chevalley groups over the integers}, 
+      title={Kazhdan constants for Chevalley groups over the integers},
       author={Marek Kaluba and Dawid Kielak},
       year={2023},
       eprint={2306.12358},
@@ -103,4 +104,3 @@ If you find yourself using or studying code in this repository please cite
       primaryClass={math.GR}
 }
 ```
-

@@ -1,4 +1,4 @@
-name: CI
+name: Replication 
 on:
   - pull_request
   - push
@@ -35,17 +35,19 @@ jobs:
             ${{ runner.os }}-
       - uses: julia-actions/julia-buildpkg@latest
       - name: Instantiating the environment
-        run: julia --project=. -e 'using Pkg; Pkg.instantiate()'
-      - name: Adj A₂ in SL₃(ℤ) (R=2)
+        run: julia --project=. -e 'using Pkg; Pkg.instantiate()' # precompiles the env
+      - name: Theorem 3.6 - Adj A₂ > 0 in SL₃(ℤ) (R=2, R=3 takes too long for CI)
         run: julia --project=@. scripts/SLnZ_AdjA2.jl -N 3 -R 2
-      - name: Sp₄(ℤ) has property (T) (R=2)
-        run: julia --project=@. scripts/Sp2nZ_has_T.jl -N 2 -R 2
-      # - name: Adj_C₂ in Sp₄(ℤ) (R=3) # takes too long
+      # - name: Theorem 3.10 - Adj_C₂ > 0 in Sp₄(ℤ) (R=3) # takes too long
       #   run: julia --project=@. scripts/Sp2nZ_has_T.jl -N 2 -R 3
-      - name: Levels in Sp₆(ℤ)
+      - name: Theorem 3.12 - Sp₄(ℤ) has property (T) (R=2)
+        run: julia --project=@. scripts/Sp2nZ_has_T.jl -N 2 -R 2
+      - name: Theorem 3.15 - Lev₂³ + Lev₃³ > 0 in Sp₆(ℤ) (R=2)
         run: julia --project=@. scripts/Sp2nZ_Level.jl -N 3 -R 2
-      - name: G₂ has property (T)
+      - name: Theorem 3.17 - G₂ has property (T) (R=2)
         run: julia --project=@. scripts/G2_has_T.jl -R 2
-      - name: Adj_G₂ in G₂ (R=2) # R=3 takes too long
+      - name: Theorem 3.18 - Adj_G₂ > 0 in G₂ (R=2 fails, R=3 takes too long for CI)
+        # The theorem only states the positivity for R=3
+        # This test only checks if the script runs property, see also the triple bounds notebook.
         run: julia --project=@. scripts/G2_Adj.jl -R 2
 
