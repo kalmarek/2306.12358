@@ -43,15 +43,15 @@ function solve_in_loop(model::JuMP.Model, args...; logdir, optimizer, data)
     old_λ = 0.0
     certified = false
     while status != JuMP.OPTIMAL
-        date = now()
-        log_file = joinpath(logdir, "solver_$date.log")
+        date_str = string(now())
         if Sys.iswindows()
-            log_file = replace(log_file, ':' => '_')
+            date = replace(date_str, ':' => '_')
         end
+        log_file = joinpath(logdir, "solver_$date_str.log")
         status, warm = run_optimization(log_file, model, optimizer, warm)
         solution = get_solution(model, args...)
         solution[:warm] = warm
-        serialize(joinpath(logdir, "solution_$date.sjl"), solution)
+        serialize(joinpath(logdir, "solution_$date_str.sjl"), solution)
         serialize(joinpath(logdir, "solution.sjl"), solution)
 
         certified, λ = open(log_file; append = true) do io
