@@ -1,5 +1,7 @@
 # Replication for [2306.12358](https://arxiv.org/abs/2306.12358)
 
+Current status: [![CI](https://github.com/kalmarek/2306.12358/actions/workflows/ci.yml/badge.svg)](https://github.com/kalmarek/2306.12358/actions/workflows/ci.yml)
+
 This repository contains notebooks and standalone code to replicate the computational results of _Kazhdan constants for Chevalley groups over the integers_ by Marek Kaluba and Dawid Kielak.
 
 Before exploring the notebooks you need to clone the main repository:
