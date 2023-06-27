@@ -34,7 +34,7 @@ unit = Δ
     wd;
     upper_bound = UPPER_BOUND,
     augmented = true,
-    show_progress = false,
+    show_progress = isinteractive(),
 )
 
 certified, λ = solve_in_loop(
