@@ -2,6 +2,8 @@
 
 Current status: [![Replication](https://github.com/kalmarek/2306.12358/actions/workflows/replication.yml/badge.svg)](https://github.com/kalmarek/2306.12358/actions/workflows/replication.yml)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8094798.svg)](https://doi.org/10.5281/zenodo.8094798)
+
 This repository contains notebooks and standalone code to replicate the computational results of _Kazhdan constants for Chevalley groups over the integers_ by Marek Kaluba and Dawid Kielak.
 
 Before exploring the notebooks you need to clone the main repository:
@@ -27,7 +29,7 @@ Instantiation should install (among others):
 * [`JuMP`](https://jump.dev/) package for mathematical programming,
 * [Splitting conic solver](https://github.com/cvxgrp/scs),
 * [`COSMO`](https://github.com/oxfordcontrol/COSMO.jl) solver, and
-* `IntervalArithmetic.jl` package from ValidatedNumerics (https://juliaintervals.github.io/).
+* `IntervalArithmetic.jl` package from [ValidatedNumerics](https://juliaintervals.github.io/).
 
 The environment uses [`Groups.jl`](https://github.com/kalmarek/Groups.jl), [`StarAlgebras.jl`](https://github.com/kalmarek/StarAlgebras.jl/), [`SymbolicWedderburn.jl`](https://github.com/kalmarek/SymbolicWedderburn.jl/) and [`PropertyT.jl`](https://github.com/kalmarek/PropertyT.jl/) (unregistered) packages.
 
@@ -95,7 +97,7 @@ Thus the following invocations can be used to reprove the computational results 
 If you find yourself using or studying code in this repository please cite
 
 ```bibtex
-@misc{kaluba2023kazhdan,
+@misc{kalubakielak2023,
       title={Kazhdan constants for Chevalley groups over the integers},
       author={Marek Kaluba and Dawid Kielak},
       year={2023},
