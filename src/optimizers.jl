@@ -1,8 +1,8 @@
 ## Optimizers
 
 import JuMP
-import MKL_jll
 import SCS
+import SCS_MKL_jll
 
 function scs_optimizer(;
     accel = 10,
@@ -10,8 +10,7 @@ function scs_optimizer(;
     eps = 1e-9,
     max_iters = 100_000,
     verbose = true,
-    linear_solver = Sys.islinux() && sizeof(Int) == 8 ? SCS.MKLDirectSolver :
-                    SCS.DirectSolver,
+    linear_solver = SCS.is_available(SCS.MKLDirectSolver) ? SCS.MKLDirectSolver : SCS.DirectSolver,
 )
     return JuMP.optimizer_with_attributes(
         SCS.Optimizer,
@@ -28,6 +27,7 @@ function scs_optimizer(;
 end
 
 import COSMO
+import Pardiso
 
 function cosmo_optimizer(;
     accel = 15,
@@ -37,11 +37,13 @@ function cosmo_optimizer(;
     verbose = true,
     verbose_timing = verbose,
     decompose = false,
+    kkt_solver = Pardiso.mkl_is_available() ? COSMO.with_options(COSMO.MKLPardisoKKTSolver) : COSMO.with_options(COSMO.QdldlKKTSolver)
 )
     return JuMP.optimizer_with_attributes(
         COSMO.Optimizer,
         "accelerator" =>
             COSMO.with_options(COSMO.AndersonAccelerator; mem = max(accel, 2)),
+        "kkt_solver" => kkt_solver,
         "alpha" => alpha,
         "decompose" => decompose,
         "eps_abs" => eps,
