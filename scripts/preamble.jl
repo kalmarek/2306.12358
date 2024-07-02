@@ -22,6 +22,6 @@ using Groups
 import Groups.MatrixGroups
 
 using PropertyT
-using PropertyT.SymbolicWedderburn
-using PropertyT.PermutationGroups
-using PropertyT.StarAlgebras
+import PropertyT.SA as StarAlgebras
+import PropertyT.SW as SymbolicWedderburn
+using PropertyT.PG # PermutationGroups
