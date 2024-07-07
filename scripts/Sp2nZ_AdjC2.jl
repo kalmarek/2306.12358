@@ -13,14 +13,7 @@ wd = let RG = RG, N = N
     Σ = Groups.Constructions.WreathProduct(PermGroup(perm"(1,2)"), P)
     act = PropertyT.action_by_conjugation(G, Σ)
 
-    wdfl = @time SymbolicWedderburn.WedderburnDecomposition(
-        Float64,
-        Σ,
-        act,
-        basis(RG),
-        StarAlgebras.Basis{UInt16}(@view basis(RG)[1:sizes[HALFRADIUS]]),
-    )
-    wdfl
+    @time wedderburn_decomposition(RG, Σ, act, 1:sizes[HALFRADIUS])
 end
 @info wd
 

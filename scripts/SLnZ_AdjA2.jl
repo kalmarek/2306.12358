@@ -13,13 +13,7 @@ wd = let RG = RG, N = N
     Σ = Groups.Constructions.WreathProduct(PermGroup(perm"(1,2)"), P)
     act = PropertyT.action_by_conjugation(G, Σ)
 
-    wdfl = @time SymbolicWedderburn.WedderburnDecomposition(
-        Float64,
-        Σ,
-        act,
-        basis(RG),
-        StarAlgebras.Basis{UInt16}(@view basis(RG)[1:sizes[HALFRADIUS]]),
-    )
+    @time wedderburn_decomposition(RG, Σ, act, 1:sizes[HALFRADIUS])
 end
 @info wd
 
@@ -47,7 +41,7 @@ certified, λ = solve_in_loop(
     model,
     wd,
     varP;
-    logdir = "./log/SL($(2N),Z)/r=$HALFRADIUS/Δ²-$(UPPER_BOUND)Δ",
+    logdir = "./log/SL($N,Z)/r=$HALFRADIUS/Δ²-$(UPPER_BOUND)Δ",
     optimizer = scs_optimizer(;
         eps = 1e-10,
         max_iters = 50_000,
