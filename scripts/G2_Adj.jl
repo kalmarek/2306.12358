@@ -9,17 +9,10 @@ RG, S, sizes = @time PropertyT.group_algebra(G, halfradius = HALFRADIUS)
 @info "computing WedderburnDecomposition"
 wd = let Σ = Weyl, RG = RG
     act = PropertyT.AlphabetPermutation{eltype(Σ),Int64}(
-        Dict(g => PermutationGroups.perm(g) for g in Σ),
+        Dict(g => g for g in Σ)),
     )
 
-    @time SymbolicWedderburn.WedderburnDecomposition(
-        Float64,
-        Σ,
-        act,
-        basis(RG),
-        StarAlgebras.Basis{UInt16}(@view basis(RG)[1:sizes[HALFRADIUS]]),
-        semisimple = false,
-    )
+    @time wedderburn_decomposition(RG, Σ, act, 1:sizes[HALFRADIUS])
 end
 @info wd
 

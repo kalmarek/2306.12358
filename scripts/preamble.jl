@@ -25,3 +25,13 @@ using PropertyT
 import PropertyT.SA as StarAlgebras
 import PropertyT.SW as SymbolicWedderburn
 using PropertyT.PG # PermutationGroups
+
+function wedderburn_decomposition(RG, Σ, action, psdrange)
+    return SymbolicWedderburn.WedderburnDecomposition(
+        Float64,
+        Σ,
+        action,
+        StarAlgebras.basis(RG),
+        StarAlgebras.Basis{UInt16}(@view StarAlgebras.basis(RG)[psdrange]),
+    )
+end
