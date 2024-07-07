@@ -2,7 +2,7 @@
 
 julia_version = "1.10.4"
 manifest_format = "2.0"
-project_hash = "3f20cb2674e804773de56b81c97f1b5076d5695a"
+project_hash = "a92b45f9c856de5fbc52c091c2ac1fee88fbbb52"
 
 [[deps.AMD]]
 deps = ["LinearAlgebra", "SparseArrays", "SuiteSparse_jll"]
@@ -442,12 +442,6 @@ git-tree-sha1 = "dfdf5519f235516220579f949664f1bf44e741c5"
 uuid = "bac558e1-5e72-5ebc-8fee-abe8a469f55d"
 version = "1.6.3"
 
-[[deps.Pardiso]]
-deps = ["Libdl", "LinearAlgebra", "MKL_jll", "SparseArrays"]
-git-tree-sha1 = "4b618484bf94a52f02595cd73ac8a6417f4c0c70"
-uuid = "46dd5b70-b6fb-5a00-ae2d-e8fea33afaf2"
-version = "0.5.7"
-
 [[deps.Parsers]]
 deps = ["Dates", "PrecompileTools", "UUIDs"]
 git-tree-sha1 = "8489905bcdbcfac64d1daa51ca07c0d8f0283821"
@@ -570,6 +564,7 @@ version = "2.0.0"
 [[deps.SCS_MKL_jll]]
 deps = ["Artifacts", "CompilerSupportLibraries_jll", "JLLWrappers", "Libdl", "MKL_jll"]
 git-tree-sha1 = "6a88dd2ab450fcdab50cf341bc61198dc536fe7c"
+pinned = true
 uuid = "3f2553a9-4106-52be-b7dd-865123654657"
 version = "3.2.4+1"
 

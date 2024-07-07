@@ -27,7 +27,6 @@ function scs_optimizer(;
 end
 
 import COSMO
-import Pardiso
 
 function cosmo_optimizer(;
     accel = 15,
@@ -37,7 +36,7 @@ function cosmo_optimizer(;
     verbose = true,
     verbose_timing = verbose,
     decompose = false,
-    kkt_solver = Pardiso.mkl_is_available() ? COSMO.with_options(COSMO.MKLPardisoKKTSolver) : COSMO.with_options(COSMO.QdldlKKTSolver)
+    kkt_solver = COSMO.with_options(COSMO.QdldlKKTSolver),
 )
     return JuMP.optimizer_with_attributes(
         COSMO.Optimizer,
