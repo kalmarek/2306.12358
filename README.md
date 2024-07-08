@@ -2,7 +2,7 @@
 
 Current status: [![Replication](https://github.com/kalmarek/2306.12358/actions/workflows/replication.yml/badge.svg)](https://github.com/kalmarek/2306.12358/actions/workflows/replication.yml)
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8094798.svg)](https://doi.org/10.5281/zenodo.8094798)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8094797.svg)](https://doi.org/10.5281/zenodo.8094797)
 
 This repository contains notebooks and standalone code to replicate the computational results of _Kazhdan constants for Chevalley groups over the integers_ by Marek Kaluba and Dawid Kielak.
 
