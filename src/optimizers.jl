@@ -1,8 +1,8 @@
 ## Optimizers
 
 import JuMP
-import SCS
 import SCS_MKL_jll
+import SCS
 
 function scs_optimizer(;
     accel = 10,
