@@ -36,10 +36,10 @@ jobs:
       - uses: julia-actions/julia-buildpkg@latest
       - name: Instantiating the environment
         run: julia --project=. -e 'using Pkg; Pkg.instantiate()' # precompiles the env
-      - name: Theorem 3.6 - Adj A₂ > 0 in SL₃(ℤ) (R=2, R=3 takes too long for CI)
+      - name: Theorem 3.6 - Adj A₂ > 0 in SL₃(ℤ) (for R=2) # (R=3 takes too long for CI)
         run: julia --project=@. scripts/SLnZ_AdjA2.jl -N 3 -R 2
       # - name: Theorem 3.10 - Adj_C₂ > 0 in Sp₄(ℤ) (R=3) # takes too long
-      #   run: julia --project=@. scripts/Sp2nZ_has_T.jl -N 2 -R 3
+      #   run: julia --project=@. scripts/Sp2nZ_AdjC2.jl -N 2 -R 3
       - name: Theorem 3.12 - Sp₄(ℤ) has property (T) (R=2)
         run: julia --project=@. scripts/Sp2nZ_has_T.jl -N 2 -R 2
       - name: Theorem 3.15 - Lev₂³ + Lev₃³ > 0 in Sp₆(ℤ) (R=2)
